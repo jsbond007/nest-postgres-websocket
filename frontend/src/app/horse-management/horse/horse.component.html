@@ -1,0 +1,121 @@
+<div class="container main">
+  <div class="row">
+    <div class="col-12">
+      <button
+        type="button"
+        style="float: right"
+        class="btn btn-success mb-4"
+        [routerLink]="['/horse/add']"
+      >
+        <i class="fa fa-add"></i>Add new
+      </button>
+    </div>
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Sex</th>
+            <!-- <th scope="col">Due Date</th> -->
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of horseList">
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.dob }}</td>
+            <td>{{ item.sex }}</td>
+            <!-- <td>{{item.dueDate}}</td> -->
+            <td>
+              <button
+                type="button"
+                class="btn btn-success mr-2"
+                (click)="selectesHorse = item; edit()"
+              >
+                <i class="fa fa-edit"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger mr-2"
+                (click)="selectesHorse = item"
+                data-toggle="modal"
+                data-target="#deleteModal"
+              >
+                <i class="fa fa-trash"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                (click)="selectesHorse = item; monitor()"
+                data-toggle="modal"
+                data-target="#monitorModal"
+              >
+                <i class="fa fa-eye"></i>Start Monitoring
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">
+          Are you sure want to delete {{ selectesHorse.name }}?
+        </h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="delete()"
+          data-dismiss="modal"
+        >
+          Yes
+        </button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="monitorModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Moitor {{ selectesHorse.name }}</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row" style="justify-content: center">
+          <div style="width: 50%">Heart Rate</div>
+          <div style="width: 20%">{{ heartRate }}</div>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

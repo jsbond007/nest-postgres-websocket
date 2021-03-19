@@ -1,0 +1,67 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form validate-form">
+        <span class="login100-form-title p-b-26">Add New Horse </span>
+
+        <div class="wrap-input100 validate-input">
+          <label>Name</label>
+          <input
+            class="input100"
+            [(ngModel)]="horseInfo.name"
+            type="text"
+            name="name"
+          />
+        </div>
+        <div class="wrap-input100 validate-input">
+          <label>Date of birth</label>
+          <input
+            class="input100"
+            type="date"
+            [(ngModel)]="horseInfo.dob"
+            name="pass"
+            placeholder="Date of birth"
+          />
+        </div>
+        <div class="wrap-input100 validate-input">
+          <label>Sex</label>
+          <select
+            class="form-control"
+            id="sel1"
+            [(ngModel)]="horseInfo.sex"
+            style="border: none"
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="wrap-input100 validate-input" style="border: none">
+          <label>Is Pregnant</label>
+          <input
+            class="ml-4"
+            type="checkbox"
+            [(ngModel)]="horseInfo.isPregnant"
+            name="pass"
+            placeholder="Date of birth"
+          />
+        </div>
+        <div class="wrap-input100 validate-input" *ngIf="horseInfo.isPregnant">
+          <label>Due Date</label>
+          <input
+            class="input100"
+            type="date"
+            [(ngModel)]="horseInfo.dueDate"
+            name="pass"
+            placeholder="Date of birth"
+          />
+        </div>
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn" (click)="save()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
