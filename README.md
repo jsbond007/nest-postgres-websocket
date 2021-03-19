@@ -1,13 +1,13 @@
 # nest-postgres-websocket
 This is a sample application using 
-Backend - 
+**Backend**
 
-NodeJs
-NestJs
-Typescript
-Postgres
-Websocket
+`NodeJs`
+`NestJs`
+`Typescript`
+`Postgres`
+`Websocket`
 
-Frontend
-Angular 
-Typescript
+**Frontend**
+`Angular`
+`Typescript`
